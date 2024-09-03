@@ -1,11 +1,8 @@
 import './App.css';
+import QueuePage from './page/QueuePage.tsx';
 
 function App() {
-  return (
-    <>
-      <div>123</div>
-    </>
-  );
+  return <QueuePage />;
 }
 
 export default App;

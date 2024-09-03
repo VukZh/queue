@@ -1,9 +1,9 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type CardType = {
   id: string;
   color: string;
-}
+};
 
 const initialState: CardType[] = [];
 
@@ -20,6 +20,6 @@ const queueSlice = createSlice({
   },
 });
 
-export const {addCard, removeCard} = queueSlice.actions;
+export const { addCard, removeCard } = queueSlice.actions;
 
 export default queueSlice.reducer;

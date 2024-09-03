@@ -1,9 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
+import queueSlice from './queueSlice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    queue: queueSlice,
+  },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+type RootState = ReturnType<typeof store.getState>;
 
-export type AppDispatch = typeof store.dispatch;
+type AppDispatch = typeof store.dispatch;
+
+export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+type DispatchFunc = () => AppDispatch;
+export const useTypedDispatch: DispatchFunc = useDispatch;
