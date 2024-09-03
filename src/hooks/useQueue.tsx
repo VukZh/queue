@@ -1,10 +1,18 @@
 import { useTypedDispatch, useTypedSelector } from '../store/store.ts';
-import { addCard, removeCard, setDeleteCard } from '../store/queueSlice.ts';
+import {
+  addCard,
+  removeCard,
+  setIsDeleteCard,
+  setIsAddCard,
+  reset,
+} from '../store/queueSlice.ts';
 import { useCallback } from 'react';
 
 const useQueue = () => {
   const dispatch = useTypedDispatch();
-  const { queue, deleteCard } = useTypedSelector((state) => state.queue);
+  const { queue, isDeleteNewCard, isAddNewCard } = useTypedSelector(
+    (state) => state.queue,
+  );
 
   const handleAddCardToQueue = useCallback(
     (id: string, color: string) => {
@@ -17,19 +25,33 @@ const useQueue = () => {
     dispatch(removeCard());
   }, [dispatch]);
 
-  const handleSetDelete = useCallback(
+  const handleSetIsDelete = useCallback(
     (isDelete: boolean) => {
-      dispatch(setDeleteCard(isDelete));
+      dispatch(setIsDeleteCard(isDelete));
     },
     [dispatch],
   );
 
+  const handleSetIsAdd = useCallback(
+    (isAdd: boolean) => {
+      dispatch(setIsAddCard(isAdd));
+    },
+    [dispatch],
+  );
+
+  const handleReset = useCallback(() => {
+    dispatch(reset());
+  }, [dispatch]);
+
   return {
     queue,
-    deleteCard,
+    isDeleteNewCard,
+    isAddNewCard,
     handleAddCardToQueue,
     handleRemoveCardFromQueue,
-    handleSetDelete,
+    handleSetIsDelete,
+    handleSetIsAdd,
+    handleReset,
   };
 };
 

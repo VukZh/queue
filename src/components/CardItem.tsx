@@ -1,5 +1,3 @@
-import styles from './CardItem.module.css';
-
 interface CardItemProps {
   id: string;
   color: string;

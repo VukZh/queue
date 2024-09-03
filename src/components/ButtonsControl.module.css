@@ -32,3 +32,19 @@
 .buttonRemove:hover {
     background-color: brown;
 }
+
+.buttonReset {
+    background-color: black;
+    color: white;
+    width: 5rem;
+}
+
+.buttonDisabled {
+    background-color: #242424;
+    cursor: auto;
+}
+
+.buttonDisabled:hover {
+    background-color: #242424;
+}
+

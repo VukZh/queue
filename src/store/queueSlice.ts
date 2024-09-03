@@ -7,12 +7,14 @@ type CardType = {
 
 type QueueSliceType = {
   queue: CardType[];
-  deleteCard: boolean;
+  isDeleteNewCard: boolean;
+  isAddNewCard: boolean;
 };
 
 const initialState: QueueSliceType = {
   queue: [],
-  deleteCard: false,
+  isDeleteNewCard: false,
+  isAddNewCard: false,
 };
 
 const queueSlice = createSlice({
@@ -25,12 +27,19 @@ const queueSlice = createSlice({
     removeCard: (state) => {
       state.queue.pop();
     },
-    setDeleteCard: (state, action: PayloadAction<boolean>) => {
-      state.deleteCard = action.payload;
+    setIsDeleteCard: (state, action: PayloadAction<boolean>) => {
+      state.isDeleteNewCard = action.payload;
+    },
+    setIsAddCard: (state, action: PayloadAction<boolean>) => {
+      state.isAddNewCard = action.payload;
+    },
+    reset: () => {
+      return initialState;
     },
   },
 });
 
-export const { addCard, removeCard, setDeleteCard } = queueSlice.actions;
+export const { addCard, removeCard, setIsDeleteCard, setIsAddCard, reset } =
+  queueSlice.actions;
 
 export default queueSlice.reducer;

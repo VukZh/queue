@@ -1,14 +1,22 @@
 .cardsWrapper {
+    position: relative;
+    height: 20vw;
+    margin-bottom: 1rem;
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
-    position: relative;
+}
+
+.cardWrapper {
+    position: absolute;
+    left: 0;
+    transition: left 1s ease-in-out;
 }
 
 .empty {
     width: 100%;
     line-height: 50vh;
     font-size: 1.5rem;
+    user-select: none;
 }
 
 .card {
@@ -18,10 +26,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 1s ease, opacity 1s ease;
+    opacity: 1;
+}
+
+.adding {
+    animation: slideIn 1s ease-in-out;
 }
 
 .removing {
-    transform: translateX(100%);
-    opacity: 0;
+    animation: slideOut 1s forwards;
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        left: -21vw;
+    }
+    to {
+        opacity: 1;
+        left: 0;
+    }
 }

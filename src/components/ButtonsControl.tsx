@@ -1,21 +1,17 @@
 import styles from './ButtonsControl.module.css';
 import { useQueue } from '../hooks/useQueue.tsx';
-import getId from '../helpers/getId.ts';
-import getRandomColor from '../helpers/getRandomColor.ts';
 
 const ButtonsControl = () => {
-  const { queue, handleAddCardToQueue, handleSetDelete } = useQueue();
+  const { queue, handleReset, handleSetIsDelete, handleSetIsAdd } = useQueue();
   const handleAddCard = () => {
-    console.log('Add Card');
-    handleAddCardToQueue(getId(), getRandomColor());
+    handleSetIsAdd(true);
   };
 
   const handleRemoveCard = () => {
-    console.log('Remove Card');
-    handleSetDelete(true);
+    handleSetIsDelete(true);
   };
 
-  console.log('queue', queue);
+  const isEmpty = !queue.length;
 
   return (
     <div className={styles.buttonsWrapper}>
@@ -25,9 +21,16 @@ const ButtonsControl = () => {
         Add Card
       </button>
       <button
-        className={`${styles.button} ${styles.buttonRemove}`}
-        onClick={handleRemoveCard}>
+        className={`${styles.button} ${styles.buttonRemove} ${isEmpty && styles.buttonDisabled}`}
+        onClick={handleRemoveCard}
+        disabled={isEmpty}>
         Remove Card
+      </button>
+      <button
+        className={`${styles.button} ${styles.buttonReset} ${isEmpty && styles.buttonDisabled}`}
+        onClick={handleReset}
+        disabled={isEmpty}>
+        Reset
       </button>
     </div>
   );
