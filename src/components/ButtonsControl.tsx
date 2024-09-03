@@ -4,7 +4,7 @@ import getId from '../helpers/getId.ts';
 import getRandomColor from '../helpers/getRandomColor.ts';
 
 const ButtonsControl = () => {
-  const { queue, handleAddCardToQueue, handleRemoveCardFromQueue } = useQueue();
+  const { queue, handleAddCardToQueue, handleSetDelete } = useQueue();
   const handleAddCard = () => {
     console.log('Add Card');
     handleAddCardToQueue(getId(), getRandomColor());
@@ -12,7 +12,7 @@ const ButtonsControl = () => {
 
   const handleRemoveCard = () => {
     console.log('Remove Card');
-    handleRemoveCardFromQueue();
+    handleSetDelete(true);
   };
 
   console.log('queue', queue);

@@ -2,10 +2,26 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .empty {
     width: 100%;
     line-height: 50vh;
     font-size: 1.5rem;
+}
+
+.card {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.removing {
+    transform: translateX(100%);
+    opacity: 0;
 }
