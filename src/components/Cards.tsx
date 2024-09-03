@@ -35,7 +35,7 @@ const Cards = () => {
       setAddingIndex(newId);
       setTimeout(() => {
         handleSetIsAdd(false);
-        setAddingIndex(null);
+        setAddingIndex('');
       }, delay);
     }
   }, [isAddNewCard]);
