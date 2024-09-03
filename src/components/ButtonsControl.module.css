@@ -1,0 +1,50 @@
+.buttonsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.button {
+    width: 10rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.buttonAdd {
+    background-color: slateblue;
+    color: white;
+}
+
+.buttonAdd:hover {
+    background-color: darkslateblue;
+}
+
+.buttonRemove {
+    background-color: tomato;
+    color: white;
+}
+
+.buttonRemove:hover {
+    background-color: brown;
+}
+
+.buttonReset {
+    background-color: black;
+    color: white;
+    width: 5rem;
+}
+
+.buttonDisabled {
+    background-color: #242424;
+    cursor: auto;
+}
+
+.buttonDisabled:hover {
+    background-color: #242424;
+}
+
