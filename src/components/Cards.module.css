@@ -3,3 +3,9 @@
     gap: 1rem;
     flex-wrap: wrap;
 }
+
+.empty {
+    width: 100%;
+    line-height: 50vh;
+    font-size: 1.5rem;
+}

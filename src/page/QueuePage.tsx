@@ -1,5 +1,4 @@
-import { ButtonsControl } from '../components';
-import Cards from '../components/Cards.tsx';
+import { ButtonsControl, Cards } from '../components';
 
 const QueuePage = () => {
   return (

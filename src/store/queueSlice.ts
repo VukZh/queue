@@ -5,17 +5,23 @@ type CardType = {
   color: string;
 };
 
-const initialState: CardType[] = [];
+type QueueSliceType = {
+  queue: CardType[];
+};
+
+const initialState: QueueSliceType = {
+  queue: [],
+};
 
 const queueSlice = createSlice({
   name: 'queue',
   initialState,
   reducers: {
     addCard: (state, action: PayloadAction<CardType>) => {
-      state.push(action.payload);
+      state.queue.unshift(action.payload);
     },
     removeCard: (state) => {
-      state.shift();
+      state.queue.pop();
     },
   },
 });
